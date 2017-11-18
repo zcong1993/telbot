@@ -14,6 +14,7 @@ const (
 // Polo is goi poloniex client
 type Polo struct {
 	symbols  []string
+	AvailableSymbols []string
 	tickers  map[string]poloniex.Ticker
 	poloniex *poloniex.Poloniex
 }
@@ -35,7 +36,7 @@ func (polo *Polo) GetPrices() ([][]string, error) {
 	filteredTickers := polo.filter()
 	prices := [][]string{}
 	for k, v := range filteredTickers {
-		item := []string{k, v.Last.String()}
+		item := []string{k, v.LowestAsk.String()}
 		prices = append(prices, item)
 	}
 	return prices, nil
@@ -44,7 +45,9 @@ func (polo *Polo) GetPrices() ([][]string, error) {
 // filter filter results by symbols provided in constructor
 func (polo *Polo) filter() map[string]poloniex.Ticker {
 	res := map[string]poloniex.Ticker{}
+	polo.AvailableSymbols = []string{}
 	for k, v := range polo.tickers {
+		polo.AvailableSymbols = append(polo.AvailableSymbols, k)
 		if StringInArray(k, polo.symbols) > -1 {
 			res[k] = v
 		}
