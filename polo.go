@@ -13,7 +13,7 @@ const (
 
 // Polo is goi poloniex client
 type Polo struct {
-	symbols  []string
+	Symbols  []string
 	AvailableSymbols []string
 	tickers  map[string]poloniex.Ticker
 	poloniex *poloniex.Poloniex
@@ -22,7 +22,7 @@ type Polo struct {
 // NewPolo is Polo client constructor
 func NewPolo(symbols []string) *Polo {
 	poloniex := poloniex.New(API_KEY, API_SECRET)
-	polo := &Polo{symbols: symbols, poloniex: poloniex}
+	polo := &Polo{Symbols: symbols, poloniex: poloniex}
 	return polo
 }
 
@@ -48,7 +48,7 @@ func (polo *Polo) filter() map[string]poloniex.Ticker {
 	polo.AvailableSymbols = []string{}
 	for k, v := range polo.tickers {
 		polo.AvailableSymbols = append(polo.AvailableSymbols, k)
-		if StringInArray(k, polo.symbols) > -1 {
+		if StringInArray(k, polo.Symbols) > -1 {
 			res[k] = v
 		}
 	}
