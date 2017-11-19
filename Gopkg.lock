@@ -2,6 +2,30 @@
 
 
 [[projects]]
+  name = "github.com/BurntSushi/toml"
+  packages = ["."]
+  revision = "b26d9c308763d68093482582cea63d69be07a0f0"
+  version = "v0.3.0"
+
+[[projects]]
+  name = "github.com/boltdb/bolt"
+  packages = ["."]
+  revision = "aa66506030b376f848667d84d2596faa8a7099ea"
+  version = "v1.0"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/edsrzf/mmap-go"
+  packages = ["."]
+  revision = "0bce6a6887123b67a60366d2c9fe2dfb74289d2e"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/golang/snappy"
+  packages = ["."]
+  revision = "553a641470496b2327abcac10b36396bd98e45c9"
+
+[[projects]]
   branch = "master"
   name = "github.com/jyap808/go-poloniex"
   packages = ["."]
@@ -26,6 +50,30 @@
   revision = "9ca7f51822d222ae4e246f070f9aad863599bd1a"
 
 [[projects]]
+  branch = "master"
+  name = "github.com/siddontang/go"
+  packages = ["filelock","hack","ioutil2","log","num","snappy","sync2"]
+  revision = "cb568a3e5cc06256f91a2da5a87455f717eb33f4"
+
+[[projects]]
+  name = "github.com/siddontang/ledisdb"
+  packages = ["config","ledis","rpl","store","store/boltdb","store/driver","store/goleveldb","store/leveldb","store/mdb","store/rocksdb"]
+  revision = "af217791d176389b9d9f2d41c414ca2f1de005cf"
+  version = "v0.4"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/syndtr/goleveldb"
+  packages = ["leveldb","leveldb/cache","leveldb/comparer","leveldb/errors","leveldb/filter","leveldb/iterator","leveldb/journal","leveldb/memdb","leveldb/opt","leveldb/storage","leveldb/table","leveldb/util"]
+  revision = "4e833ef66421be923d1c3fba537738ed3607fdc6"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/szferi/gomdb"
+  packages = ["."]
+  revision = "6bcb5a8059f9655a259774650dbe0cad422767a3"
+
+[[projects]]
   name = "github.com/technoweenie/multipartstreamer"
   packages = ["."]
   revision = "a90a01d73ae432e2611d178c18367fbaa13e0154"
@@ -40,6 +88,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "09cfb1e1c3a9b88913d93d59ab8749d8e7cac1169c627dce4825da68c8309cee"
+  inputs-digest = "3628f126f3ce09d093e69aa2f4d2d14d448e6cea2465d632ed2ae2a722580d57"
   solver-name = "gps-cdcl"
   solver-version = 1
