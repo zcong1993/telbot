@@ -36,7 +36,7 @@ func (polo *Polo) GetPrices() ([][]string, error) {
 	filteredTickers := polo.filter()
 	prices := [][]string{}
 	for k, v := range filteredTickers {
-		item := []string{k, v.LowestAsk.String()}
+		item := []string{k, v.Last.String()}
 		prices = append(prices, item)
 	}
 	return prices, nil
