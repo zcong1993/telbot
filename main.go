@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	symbols := []string{"USDT_REP", "USDT_BCH", "BTC_ETC", "USDT_ETH", "USDT_LTC", "USDT_BTC", "BTC_ETH", "USDT_ETC"}
+	symbols := []string{"USDT_REP", "USDT_BCH", "BTC_ETC", "USDT_ETH", "USDT_LTC", "USDT_BTC", "BTC_ETH", "USDT_ETC", "BTC_BCH"}
 	polo := NewPolo(symbols)
 
 	bot, err := tgbotapi.NewBotAPI(os.Getenv("TOKEN"))

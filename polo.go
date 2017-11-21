@@ -13,10 +13,10 @@ const (
 
 // Polo is goi poloniex client
 type Polo struct {
-	Symbols  []string
+	Symbols          []string
 	AvailableSymbols []string
-	tickers  map[string]poloniex.Ticker
-	poloniex *poloniex.Poloniex
+	tickers          map[string]poloniex.Ticker
+	poloniex         *poloniex.Poloniex
 }
 
 // NewPolo is Polo client constructor
