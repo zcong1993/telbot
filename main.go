@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+	"github.com/bitfinexcom/bitfinex-api-go/v2"
+	bfx "github.com/zcong1993/telbot/bitfinex"
 	"gopkg.in/telegram-bot-api.v4"
 	"log"
 	"os"
@@ -9,8 +11,8 @@ import (
 )
 
 func main() {
-	symbols := []string{"USDT_REP", "USDT_BCH", "BTC_ETC", "USDT_ETH", "USDT_LTC", "USDT_BTC", "BTC_ETH", "USDT_ETC", "BTC_BCH"}
-	polo := NewPolo(symbols)
+	symbols := []string{bitfinex.BTCUSD, "BCHUSD", bitfinex.ETHUSD, bitfinex.LTCUSD, bitfinex.ETCUSD, "BCHBTC", bitfinex.ETCBTC, bitfinex.ETHBTC}
+	b := bfx.NewBfx(symbols)
 
 	bot, err := tgbotapi.NewBotAPI(os.Getenv("TOKEN"))
 
@@ -43,13 +45,17 @@ func main() {
 		result := echo.MatchString(update.Message.Text)
 
 		if result {
-			prices, err := polo.GetPrices()
+			prices, err := b.GetTicker()
 			var text string
 			if err != nil {
 				text = "An error occurred"
 				log.Println(err.Error())
 			} else {
-				buf := CreateTableText(prices)
+				d := [][]string{}
+				for k, v := range prices {
+					d = append(d, []string{k, fmt.Sprintf("%f", v)})
+				}
+				buf := CreateTableText(d)
 				text = buf.String()
 				fmt.Println(text)
 			}
