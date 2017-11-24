@@ -37,7 +37,8 @@ func (bfx *Bfx) run() {
 		log.Printf("EVENT: %#v", ev)
 	})
 	for _, symbol := range bfx.Symbols {
-		ctx, _ := context.WithTimeout(context.Background(), time.Second)
+		ctx, cancel := context.WithTimeout(context.Background(), time.Second)
+		defer cancel()
 		msg := &bitfinex.PublicSubscriptionRequest{
 			Event:   "subscribe",
 			Channel: bitfinex.ChanTicker,

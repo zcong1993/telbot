@@ -2,11 +2,11 @@ package main
 
 import (
 	"fmt"
+	"github.com/bitfinexcom/bitfinex-api-go/v2"
+	bfx "github.com/zcong1993/telbot/bitfinex"
 	"gopkg.in/telegram-bot-api.v4"
 	"log"
 	"os"
-	"github.com/bitfinexcom/bitfinex-api-go/v2"
-	bfx "github.com/zcong1993/telbot/bitfinex"
 	"regexp"
 )
 
